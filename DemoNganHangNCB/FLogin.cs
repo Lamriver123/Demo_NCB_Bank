@@ -24,15 +24,18 @@ namespace DemoNganHangNCB
             password = txtPassword.Text;
 
             
-            AppState.virtualWeb = new AuthService(headless: false);
+            
+
+            AppState.virtualWeb = new VirtualWebService(headless: false, useOffscreen: true);
             await AppState.virtualWeb.InitializeAsync();
 
-            var result = await AppState.virtualWeb.LoginAndGetTokenAsync(username, password);
+            var authService = new AuthService(AppState.virtualWeb);
+            var result = await authService.LoginAndGetTokenAsync(username, password);
             if (result.IsSuccess)
             {
                 MessageBox.Show("Đăng nhập thành công!");
                 this.Hide();
-                FHome fHome = new FHome();
+                FMain fHome = new FMain();
                 fHome.ShowDialog();
                 this.Close();
             }

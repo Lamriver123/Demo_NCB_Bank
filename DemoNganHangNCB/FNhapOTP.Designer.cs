@@ -32,6 +32,7 @@ namespace DemoNganHangNCB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FNhapOTP));
             panel1 = new Panel();
             btnBack = new Button();
             reSendOTP = new LinkLabel();
@@ -164,6 +165,7 @@ namespace DemoNganHangNCB
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 666);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FNhapOTP";
             Text = "Đăng nhập";
             panel1.ResumeLayout(false);

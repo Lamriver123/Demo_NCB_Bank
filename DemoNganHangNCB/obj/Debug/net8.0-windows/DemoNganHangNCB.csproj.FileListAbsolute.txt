@@ -6,7 +6,6 @@ E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\bin\Debug\net8.0-windows\
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.csproj.AssemblyReference.cache
-E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FHome.resources
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FLogin.resources
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FNhapOTP.resources
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.Properties.Resources.resources
@@ -369,3 +368,5 @@ E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\bin\Debug\net8.0-windows\
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FChuyenTienNhanh.resources
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FChuyenTienThuong.resources
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FTraCuuSoDu.resources
+E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.sourcelink.json
+E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FMain.resources

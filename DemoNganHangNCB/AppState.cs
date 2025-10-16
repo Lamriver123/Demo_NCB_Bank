@@ -19,7 +19,7 @@ namespace DemoNganHangNCB
         public static string AccessToken { get; set; }
         public static string RefreshToken { get; set; }
         public static string deviceToken { get; set; }
-        public static AuthService virtualWeb { get; set; }
+        public static VirtualWebService virtualWeb { get; set; }
         public static void Reset()
         {
             AccessToken = null;

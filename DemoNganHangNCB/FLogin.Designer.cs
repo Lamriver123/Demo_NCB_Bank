@@ -32,6 +32,7 @@ namespace DemoNganHangNCB
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FLogin));
             panel1 = new Panel();
             btnLogin = new Button();
             label5 = new Label();
@@ -162,7 +163,9 @@ namespace DemoNganHangNCB
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 666);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
