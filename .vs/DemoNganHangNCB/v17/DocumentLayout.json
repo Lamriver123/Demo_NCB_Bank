@@ -1,12 +1,185 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\services\\tracuuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\services\\tracuuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\ftracuusodu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\ftracuusodu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\ftracuusodu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\ftracuusodu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\ftrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\ftrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 211,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TraCuuService.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwDIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:41:06.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FChuyenTienThuong.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA0wBcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T18:29:03.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FChuyenTienThuong.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienThuong.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T18:28:57.019Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FChuyenTienNhanh.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwCQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T18:23:01.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FTrangChu.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FTrangChu.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FTrangChu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:53:59.696Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FTraCuuSoDu.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowD0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:34:10.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FTraCuuSoDu.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTraCuuSoDu.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FTraCuuSoDu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:34:06.897Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FMain.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FMain.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FMain.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FMain.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FMain.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:27:01.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FMain.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FMain.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FMain.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FMain.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:26:15.901Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FChuyenTienNhanh.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienNhanh.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T16:04:16.308Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

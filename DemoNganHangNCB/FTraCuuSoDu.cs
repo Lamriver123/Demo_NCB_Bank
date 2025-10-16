@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace DemoNganHangNCB
         public FTraCuuSoDu()
         {
             InitializeComponent();
+            pContent.Hide();
         }
 
 
@@ -35,16 +37,28 @@ namespace DemoNganHangNCB
                     this.Close();
                     return;
                 }
-                lblAccountName.Text = account.accountName;
-                lblAccountNo.Text = account.accountNo;
+                lblAccountName.Text ="Chủ tài khoản: " + account.accountName;
+                lblAccountNo.Text ="Số tài khoản: "+ account.accountNo;
                 lblAccountType.Text = account.accountType;
-                lblSoDu.Text = account.balance + "  " + account.currency;
+                lblSoDu.Text = FormatNumberStringWithCommas(account.balance) + "  " + account.currency;
                 lblStatus.Text = account.status;
+
+                pContent.Show();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi tra cứu: {ex.Message}");
             }
+            
+        }
+
+        public string FormatNumberStringWithCommas(string numberString)
+        {
+            if (long.TryParse(numberString, out long number))
+            {
+                return number.ToString("N0", new CultureInfo("en-US"));
+            }
+            return numberString;
         }
     }
 }

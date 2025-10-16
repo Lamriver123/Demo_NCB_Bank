@@ -74,7 +74,7 @@ namespace DemoNganHangNCB
             btnChuyenThuong.IconColor = tertiaryForeColor;
 
             FTraCuuSoDu fTraCuuSoDu = new FTraCuuSoDu();
-            openChildForm( fTraCuuSoDu );
+            openChildForm(fTraCuuSoDu);
 
         }
 
@@ -101,6 +101,10 @@ namespace DemoNganHangNCB
             btnChuyenThuong.BackColor = tertiaryBackColor;
             btnChuyenThuong.ForeColor = tertiaryForeColor;
             btnChuyenThuong.IconColor = tertiaryForeColor;
+
+            //Logic
+            FTrangChu fTrangChu = new FTrangChu();
+            openChildForm(fTrangChu);
         }
 
 
@@ -121,6 +125,7 @@ namespace DemoNganHangNCB
 
         private void btnChuyenNhanh_Click(object sender, EventArgs e)
         {
+            //UI
             pMoreLenhChuyenTien.BackColor = primaryBackColor;
 
             btnChuyenNhanh.BackColor = secondaryBackColor;
@@ -142,6 +147,11 @@ namespace DemoNganHangNCB
             btnChuyenThuong.BackColor = primaryBackColor;
             btnChuyenThuong.ForeColor = tertiaryForeColor;
             btnChuyenThuong.IconColor = tertiaryForeColor;
+
+
+            //Logic
+            FChuyenTienNhanh fChuyenTienNhanh = new FChuyenTienNhanh();
+            openChildForm(fChuyenTienNhanh);
         }
 
         private void btnChuyenThuong_Click(object sender, EventArgs e)
@@ -167,6 +177,15 @@ namespace DemoNganHangNCB
             btnChuyenNhanh.BackColor = primaryBackColor;
             btnChuyenNhanh.ForeColor = tertiaryForeColor;
             btnChuyenNhanh.IconColor = tertiaryForeColor;
+
+            //Logic
+            FChuyenTienThuong fChuyenTienThuong = new FChuyenTienThuong();
+            openChildForm(fChuyenTienThuong);
+        }
+
+        private void FMain_Load(object sender, EventArgs e)
+        {
+            btnTrangChu_Click(sender, e);
         }
     }
 }

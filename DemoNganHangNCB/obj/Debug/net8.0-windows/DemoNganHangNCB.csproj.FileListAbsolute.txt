@@ -370,3 +370,4 @@ E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FTraCuuSoDu.resources
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.sourcelink.json
 E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FMain.resources
+E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\obj\Debug\net8.0-windows\DemoNganHangNCB.FTrangChu.resources

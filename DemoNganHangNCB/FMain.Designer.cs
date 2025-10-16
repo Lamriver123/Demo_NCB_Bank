@@ -298,6 +298,7 @@ namespace DemoNganHangNCB
             Name = "FMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NCB Banking";
+            Load += FMain_Load;
             pSidebar.ResumeLayout(false);
             pSidebar.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
