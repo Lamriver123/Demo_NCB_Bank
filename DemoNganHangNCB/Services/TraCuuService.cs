@@ -60,7 +60,7 @@ namespace DemoNganHangNCB.Services
                     ? DateTime.MinValue
                     : firstItem["openDate"]!.Value<DateTime>()
             };
-
+            AppState.account = account;
 
             return account;
         }

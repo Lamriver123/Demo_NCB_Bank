@@ -38,11 +38,11 @@ namespace DemoNganHangNCB
             reSendOTP = new LinkLabel();
             btnLogin = new Button();
             label4 = new Label();
-            txtOTP = new TextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            txtOTP = new MaskedTextBox();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -50,11 +50,11 @@ namespace DemoNganHangNCB
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txtOTP);
             panel1.Controls.Add(btnBack);
             panel1.Controls.Add(reSendOTP);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(txtOTP);
             panel1.Controls.Add(flowLayoutPanel1);
             panel1.Location = new Point(454, 67);
             panel1.Name = "panel1";
@@ -107,14 +107,6 @@ namespace DemoNganHangNCB
             label4.TabIndex = 4;
             label4.Text = "Lần đầu đăng nhập ở đây. Vui lòng \r\nnhập mã OTP đã gửi về điện thoại";
             // 
-            // txtOTP
-            // 
-            txtOTP.Font = new System.Drawing.Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtOTP.Location = new Point(56, 220);
-            txtOTP.Name = "txtOTP";
-            txtOTP.Size = new Size(313, 35);
-            txtOTP.TabIndex = 3;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(label1);
@@ -159,6 +151,16 @@ namespace DemoNganHangNCB
             label3.TabIndex = 2;
             label3.Text = "Kính chào quý khách";
             // 
+            // txtOTP
+            // 
+            txtOTP.Font = new System.Drawing.Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtOTP.Location = new Point(56, 233);
+            txtOTP.Mask = "000000";
+            txtOTP.Name = "txtOTP";
+            txtOTP.Size = new Size(313, 35);
+            txtOTP.TabIndex = 13;
+            txtOTP.ValidatingType = typeof(int);
+            // 
             // FNhapOTP
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -183,9 +185,9 @@ namespace DemoNganHangNCB
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label3;
         private Label label4;
-        private TextBox txtOTP;
         private Button btnLogin;
         private Button btnBack;
         private LinkLabel reSendOTP;
+        private MaskedTextBox txtOTP;
     }
 }

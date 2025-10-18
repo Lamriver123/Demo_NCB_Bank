@@ -1,4 +1,5 @@
-﻿using DemoNganHangNCB.Services;
+﻿using DemoNganHangNCB.Models;
+using DemoNganHangNCB.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +21,24 @@ namespace DemoNganHangNCB
         public static string RefreshToken { get; set; }
         public static string deviceToken { get; set; }
         public static VirtualWebService virtualWeb { get; set; }
+
+        public static Account account { get; set; }
         public static void Reset()
         {
             AccessToken = null;
             RefreshToken = null;
             deviceToken = null;
+            account = null;
         }
-
+        public static void DangXuat()
+        {
+            if (virtualWeb != null)
+            {
+                virtualWeb.DisposeAsync().AsTask().GetAwaiter().GetResult();
+                virtualWeb = null;
+            }
+            Reset();
+        }
 
     }
 }

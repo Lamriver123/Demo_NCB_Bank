@@ -129,6 +129,47 @@ namespace DemoNganHangNCB.Services
             }
         }
 
+        public async Task<string> GuiRequestSerializeAsync(string url, string method = "GET",
+            Dictionary<string, string> headers = null, string bodyJs = null)
+        {
+            await EnsureInitializedAsync();
+
+            // build JS header literal
+            string headersJs = "{}";
+            if (headers != null && headers.Count > 0)
+            {
+                var pairs = headers.Select(kv => $"'{EscapeJs(kv.Key)}':'{EscapeJs(kv.Value)}'");
+                headersJs = "{" + string.Join(",", pairs) + "}";
+            }
+
+            string bodyDeclaration = bodyJs != null? $"const body = JSON.stringify({bodyJs});": "const body = null;";
+
+
+            string js = $@"
+                async () => {{
+                    {bodyDeclaration}
+                    const opts = {{
+                        method: '{method.ToUpper()}',
+                        headers: {headersJs},
+                        credentials: 'include'
+                    }};
+                    if (body) opts.body = body;
+                    const res = await fetch('{EscapeJs(url)}', opts);
+                    return await res.text();
+                }}";
+
+            await _pageLock.WaitAsync();
+            try
+            {
+                var text = await _page.EvaluateAsync<string>(js);
+                return text;
+            }
+            finally
+            {
+                _pageLock.Release();
+            }
+        }
+
         /// <summary>
         /// Lấy cookie header hiện tại (dạng "k=v; k2=v2")
         /// </summary>
