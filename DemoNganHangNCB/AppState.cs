@@ -19,7 +19,6 @@ namespace DemoNganHangNCB
         public static string grant_device = "9f49a0a0c39e776f19d9d21e8a720764";
         public static string AccessToken { get; set; }
         public static string RefreshToken { get; set; }
-        public static string deviceToken { get; set; }
         public static VirtualWebService virtualWeb { get; set; }
 
         public static Account account { get; set; }
@@ -27,7 +26,6 @@ namespace DemoNganHangNCB
         {
             AccessToken = null;
             RefreshToken = null;
-            deviceToken = null;
             account = null;
         }
         public static void DangXuat()

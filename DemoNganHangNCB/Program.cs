@@ -1,4 +1,6 @@
 
+using DemoNganHangNCB.Services;
+
 namespace DemoNganHangNCB
 {
     internal static class Program
@@ -11,13 +13,13 @@ namespace DemoNganHangNCB
         {
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            AppState.virtualWeb = new VirtualWebService(headless: false, useOffscreen: true);
+            await AppState.virtualWeb.InitializeAsync();
+            
             Application.Run(new FLogin());
 
-            if (AppState.virtualWeb != null)
-            {
-                AppState.virtualWeb.DisposeAsync().AsTask().GetAwaiter().GetResult();
-                AppState.virtualWeb = null;
-            }
+            AppState.DangXuat();
         }
     }
 }

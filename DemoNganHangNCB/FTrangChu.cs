@@ -12,6 +12,7 @@ namespace DemoNganHangNCB
 {
     public partial class FTrangChu : Form
     {
+        public event Action? LogoutRequested;
         public FTrangChu()
         {
             InitializeComponent();

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Net;
+using System.Security.Principal;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace DemoNganHangNCB
 {
@@ -17,7 +18,7 @@ namespace DemoNganHangNCB
         private FormCKN formCKN;
         private Dictionary<string, Image> logoCache = new Dictionary<string, Image>();
         private bool benChuyenTra = false;
-
+        public event Action? LogoutRequested;
         public FChuyenTienNhanh()
         {
             InitializeComponent();
@@ -34,46 +35,9 @@ namespace DemoNganHangNCB
             InitializeComboBox();
             LoadSoDu();
 
-            //await DownloadBankLogosAsync();
             pContent.Show();
         }
-        //private async Task DownloadBankLogosAsync()
-        //{
-        //    string logoFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logos");
 
-        //    // Tạo thư mục nếu chưa có
-        //    if (!Directory.Exists(logoFolder))
-        //        Directory.CreateDirectory(logoFolder);
-
-        //    using (var client = new WebClient())
-        //    {
-        //        foreach (var bank in banks)
-        //        {
-        //            try
-        //            {
-        //                // Tên file an toàn
-        //                string safeFileName = bank.bankName.Replace("/", "-").Replace("\\", "-");
-        //                string filePath = Path.Combine(logoFolder, $"{safeFileName}.png");
-
-        //                // Bỏ qua nếu đã có
-        //                if (File.Exists(filePath))
-        //                    continue;
-
-        //                // Tải ảnh về
-        //                byte[] data = await client.DownloadDataTaskAsync(bank.logo);
-        //                await File.WriteAllBytesAsync(filePath, data);
-
-        //                Console.WriteLine($"✅ Tải xong logo: {bank.bankName}");
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                Console.WriteLine($"⚠️ Lỗi tải {bank.bankName}: {ex.Message}");
-        //            }
-        //        }
-        //    }
-
-        //    MessageBox.Show("✅ Đã tải toàn bộ logo ngân hàng vào thư mục 'logos'.", "Hoàn tất");
-        //}
 
         private async void LoadSoDu()
         {
@@ -85,11 +49,8 @@ namespace DemoNganHangNCB
                 if (account == null)
                 {
                     MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
-                    AppState.DangXuat();
-                    var fLogin = new FLogin();
-                    this.Hide();
-                    fLogin.ShowDialog();
-                    this.Close();
+                    LogoutRequested?.Invoke();
+
                     return;
                 }
 
@@ -113,11 +74,8 @@ namespace DemoNganHangNCB
                 if (banks == null)
                 {
                     MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
-                    AppState.DangXuat();
-                    var fLogin = new FLogin();
-                    this.Hide();
-                    fLogin.ShowDialog();
-                    this.Close();
+                    LogoutRequested?.Invoke();
+
                     return;
                 }
             }
@@ -214,34 +172,34 @@ namespace DemoNganHangNCB
 
         private async void btnChuyen_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private async void txtSTK_Leave(object sender, EventArgs e)
         {
-            string soTaiKhoan = txtSTK.Text.Trim();
-            if (soTaiKhoan == "" || !Regex.IsMatch(soTaiKhoan, @"^[0-9]+$"))
-            {
-                MessageBox.Show("STK không hợp lệ");
-            }
-            else
+            if (!string.IsNullOrEmpty(txtSTK.Text))
             {
                 try
                 {
                     string selectedCode = cbNganHang.SelectedValue?.ToString();
                     if (selectedCode != "")
                     {
-                        var bankingService = new BankingService(AppState.virtualWeb);
-                        var creditName = await bankingService.LayTenNguoiThuHuongAsync(txtSTK.Text, selectedCode);
 
+                        var bankingService = new BankingService(AppState.virtualWeb);
+                        var creditName = "";
+                        if (selectedCode != "-1")
+                        {
+                            creditName = await bankingService.LayTenNguoiThuHuongKhacTKAsync(txtSTK.Text, selectedCode);
+                        }
+                        else
+                        {
+                            creditName = await bankingService.LayTenNguoiThuHuongCungTKAsync(txtSTK.Text);
+                        }
                         if (creditName == null)
                         {
                             MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
-                            AppState.DangXuat();
-                            var fLogin = new FLogin();
-                            this.Hide();
-                            fLogin.ShowDialog();
-                            this.Close();
+                            LogoutRequested?.Invoke();
+
                             return;
                         }
 
@@ -251,8 +209,9 @@ namespace DemoNganHangNCB
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Lỗi tra cứu: {ex.Message}");
+                    MessageBox.Show(ex.Message);
                     txtBenThuHuong.Clear();
+                    txtSTK.Clear();
                 }
             }
         }
@@ -268,20 +227,23 @@ namespace DemoNganHangNCB
         {
             try
             {
-                if (txtSTK.Text != "" || cbNganHang.Text != "" || txtBenThuHuong.Text != "" || txtNoiDungChuyen.Text != "" || txtSoTienChuyen.Text != "")
+                if (txtSTK.Text.Trim() != "" && cbNganHang.Text.Trim() != "" && txtBenThuHuong.Text.Trim() != "" && txtNoiDungChuyen.Text.Trim() != "" && txtSoTienChuyen.Text.Trim() != "")
                 {
+                    string soTienText = txtSoTienChuyen.Text.Replace(".", "");
+                    string duty = "NO";
                     string selectedCode = cbNganHang.SelectedValue?.ToString();
+                    if (rbBenNhanTra.Checked == true)
+                    {
+                        duty = "YES";
+                    }
                     var bankingService = new BankingService(AppState.virtualWeb);
-                    formCKN = await bankingService.ChuyenTienNhanhAsync(txtSTK.Text, txtBenThuHuong.Text, selectedCode, txtSoTienChuyen.Text, txtNoiDungChuyen.Text);
+                    formCKN = await bankingService.ChuyenTienNhanhAsync(txtSTK.Text, txtBenThuHuong.Text, selectedCode, soTienText, txtNoiDungChuyen.Text, duty);
 
                     if (formCKN == null)
                     {
                         MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
-                        AppState.DangXuat();
-                        var fLogin = new FLogin();
-                        this.Hide();
-                        fLogin.ShowDialog();
-                        this.Close();
+                        LogoutRequested?.Invoke();
+
                         return;
                     }
 
@@ -292,12 +254,17 @@ namespace DemoNganHangNCB
                     txtSTK.ReadOnly = true;
                     cbNganHang.Enabled = false;
                 }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                }
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi tra cứu: {ex.Message}");
+                MessageBox.Show(ex.Message);
+                txtSTK.Clear();
                 txtBenThuHuong.Clear();
             }
         }
@@ -325,11 +292,8 @@ namespace DemoNganHangNCB
                     if (authResult.ErrorCode == "401")
                     {
                         MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
-                        AppState.DangXuat();
-                        var fLogin = new FLogin();
-                        this.Hide();
-                        fLogin.ShowDialog();
-                        this.Close();
+                        LogoutRequested?.Invoke();
+
                         return;
                     }
                     else if (authResult.ErrorCode == "200")
@@ -337,18 +301,89 @@ namespace DemoNganHangNCB
                         MessageBox.Show("Tạo lệnh thành công");
                         btnQuayLai_Click(sender, e);
                     }
-                    else if(authResult.ErrorCode == "5450")
+                    else
                     {
-                        MessageBox.Show("Tạo lệnh thành công");
-                        btnQuayLai_Click(sender, e);
+                        MessageBox.Show(authResult.Message);
+                        LogoutRequested?.Invoke();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi tra cứu: {ex.Message}");
+                MessageBox.Show(ex.Message);
                 txtBenThuHuong.Clear();
+                txtSTK.Clear();
             }
+        }
+
+        private void rbBenChuyenTra_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoTienChuyen_TextChanged(object sender, EventArgs e)
+        {
+            // Lưu vị trí con trỏ hiện tại
+            int selectionStart = txtSoTienChuyen.SelectionStart;
+
+            // Lấy chuỗi chỉ gồm các ký tự số
+            string digits = new string(txtSoTienChuyen.Text.Where(char.IsDigit).ToArray());
+
+            // Giới hạn tối đa 10 chữ số
+            if (digits.Length > 10)
+                digits = digits.Substring(0, 10);
+
+            if (string.IsNullOrEmpty(digits))
+            {
+                txtSoTienChuyen.Text = "";
+                return;
+            }
+
+            // Định dạng có dấu chấm
+            if (decimal.TryParse(digits, out decimal value))
+            {
+                txtSoTienChuyen.Text = string.Format("{0:N0}", value);
+            }
+
+            // Đưa con trỏ về cuối
+            txtSoTienChuyen.SelectionStart = txtSoTienChuyen.Text.Length;
+        }
+
+        private void txtSoTienChuyen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNoiDungChuyen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            // Kiểm tra ký tự hợp lệ: chỉ A-Z, a-z, 0-9, khoảng trắng
+            if (!Regex.IsMatch(e.KeyChar.ToString(), @"^[a-zA-Z0-9\s]$"))
+            {
+                e.Handled = true; // chặn ký tự
+            }
+        }
+
+        private void txtSTK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            // Kiểm tra ký tự hợp lệ: 0-9
+            if (!Regex.IsMatch(e.KeyChar.ToString(), @"^[0-9]$"))
+            {
+                e.Handled = true; // chặn ký tự
+            }
+        }
+
+        private void lblAccountNo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

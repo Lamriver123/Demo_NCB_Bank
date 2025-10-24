@@ -34,6 +34,7 @@ namespace DemoNganHangNCB
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FNhapOTP));
             panel1 = new Panel();
+            txtOTP = new MaskedTextBox();
             btnBack = new Button();
             reSendOTP = new LinkLabel();
             btnLogin = new Button();
@@ -42,9 +43,10 @@ namespace DemoNganHangNCB
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            txtOTP = new MaskedTextBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -56,10 +58,21 @@ namespace DemoNganHangNCB
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(flowLayoutPanel1);
-            panel1.Location = new Point(454, 67);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(469, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(407, 507);
+            panel1.Size = new Size(413, 526);
             panel1.TabIndex = 0;
+            // 
+            // txtOTP
+            // 
+            txtOTP.Font = new System.Drawing.Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtOTP.Location = new Point(56, 233);
+            txtOTP.Mask = "000000";
+            txtOTP.Name = "txtOTP";
+            txtOTP.Size = new Size(313, 35);
+            txtOTP.TabIndex = 13;
+            txtOTP.ValidatingType = typeof(int);
             // 
             // btnBack
             // 
@@ -73,6 +86,7 @@ namespace DemoNganHangNCB
             btnBack.TabIndex = 12;
             btnBack.Text = "Quay lại";
             btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // reSendOTP
             // 
@@ -151,29 +165,40 @@ namespace DemoNganHangNCB
             label3.TabIndex = 2;
             label3.Text = "Kính chào quý khách";
             // 
-            // txtOTP
+            // tableLayoutPanel1
             // 
-            txtOTP.Font = new System.Drawing.Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtOTP.Location = new Point(56, 233);
-            txtOTP.Mask = "000000";
-            txtOTP.Name = "txtOTP";
-            txtOTP.Size = new Size(313, 35);
-            txtOTP.TabIndex = 13;
-            txtOTP.ValidatingType = typeof(int);
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 419F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 73F));
+            tableLayoutPanel1.Controls.Add(panel1, 2, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.0367889F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.96321F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
+            tableLayoutPanel1.Size = new Size(958, 666);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // FNhapOTP
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 666);
-            Controls.Add(panel1);
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FNhapOTP";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -189,5 +214,6 @@ namespace DemoNganHangNCB
         private Button btnBack;
         private LinkLabel reSendOTP;
         private MaskedTextBox txtOTP;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

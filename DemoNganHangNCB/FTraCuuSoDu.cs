@@ -14,10 +14,12 @@ namespace DemoNganHangNCB
 {
     public partial class FTraCuuSoDu : Form
     {
+        public event Action? LogoutRequested;
         public FTraCuuSoDu()
         {
             InitializeComponent();
             pContent.Hide();
+
         }
 
 
@@ -31,10 +33,8 @@ namespace DemoNganHangNCB
                 if (account == null)
                 {
                     MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
-                    var fLogin = new FLogin();
-                    this.Hide();
-                    fLogin.ShowDialog();
-                    this.Close();
+                    LogoutRequested?.Invoke();
+                    
                     return;
                 }
                 lblAccountName.Text ="Chủ tài khoản: " + account.accountName;

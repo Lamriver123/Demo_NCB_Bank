@@ -1,4 +1,5 @@
 ﻿using DemoNganHangNCB.Services;
+using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.DataFormats;
 
 namespace DemoNganHangNCB
@@ -23,11 +24,6 @@ namespace DemoNganHangNCB
             username = txtUserName.Text;
             password = txtPassword.Text;
 
-            
-            
-
-            AppState.virtualWeb = new VirtualWebService(headless: false, useOffscreen: true);
-            await AppState.virtualWeb.InitializeAsync();
 
             var authService = new AuthService(AppState.virtualWeb);
             var result = await authService.LoginAndGetTokenAsync(username, password);
@@ -41,19 +37,27 @@ namespace DemoNganHangNCB
             }
             else
             {
-                if (result.ErrorCode?.Contains("NCBLOGIN-14") == true)
+                switch (result.ErrorCode)
                 {
-                    MessageBox.Show("Thiết bị mới, vui lòng nhập mã OTP.");
-                    //var otpForm = new FormOtp(txtUsername.Text, txtPassword.Text);
-                    //otpForm.ShowDialog();
-                }
-                else if (result.ErrorCode?.Contains("NCBLOGIN-9") == true)
-                {
-                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.");
-                }
-                else
-                {
-                    MessageBox.Show(result.Message);
+                    case "NCBLOGIN-9":
+                        MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu. Tài khoản có thể đã bị khóa sau nhiều lần thử sai.",
+                                        "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+
+                    case "NCBLOGIN-14":
+                        MessageBox.Show("Thiết bị mới — cần xác thực OTP để tiếp tục.",
+                                        "Xác thực OTP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide() ;
+                        using (var fNhapOTP = new FNhapOTP(username,password))
+                        {
+                            fNhapOTP.ShowDialog();
+                        }
+                        this.Close();
+                        break;
+                    default:
+                        MessageBox.Show(result.Message ?? "Đăng nhập thất bại. Vui lòng thử lại.",
+                                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
                 }
             }
             btnLogin.Enabled = true;

@@ -14,6 +14,7 @@ namespace DemoNganHangNCB
 {
     public partial class FChuyenTienThuong : Form
     {
+        public event Action? LogoutRequested;
         public FChuyenTienThuong()
         {
             InitializeComponent();
@@ -23,17 +24,15 @@ namespace DemoNganHangNCB
         {
             try
             {
-                //AppState.AccessToken = "a";
+                AppState.AccessToken = "a";
                 var traCuuService = new TraCuuService(AppState.virtualWeb);
                 var account = await traCuuService.LayThongTinTaiKhoanAsync();
 
                 if (account == null)
                 {
                     MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
-                    var fLogin = new FLogin();
-                    this.Hide();
-                    fLogin.ShowDialog();
-                    this.Close();
+                    LogoutRequested?.Invoke();
+
                     return;
                 }
                 lblAccountNo.Text = account.accountNo;

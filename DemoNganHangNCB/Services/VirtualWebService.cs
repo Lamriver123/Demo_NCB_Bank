@@ -32,6 +32,7 @@ namespace DemoNganHangNCB.Services
         {
             if (_initialized) return;
 
+            Environment.SetEnvironmentVariable("PLAYWRIGHT_BROWSERS_PATH", ".playwright");
             _playwright = await Playwright.CreateAsync();
 
             var launchArgs = new List<string> { "--disable-blink-features=AutomationControlled" };

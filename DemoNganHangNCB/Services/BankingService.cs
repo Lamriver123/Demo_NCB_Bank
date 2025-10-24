@@ -71,7 +71,7 @@ namespace DemoNganHangNCB.Services
         }
 
 
-        public async Task<string> LayTenNguoiThuHuongAsync(
+        public async Task<string> LayTenNguoiThuHuongKhacTKAsync(
             string creditAcctNo,
             string bankCode,
             string type = "ACCOUNT")
@@ -101,13 +101,63 @@ namespace DemoNganHangNCB.Services
 
             JObject json = JObject.Parse(responseText);
 
+            // Trường hợp token hết hạn hoặc không hợp lệ
+            if (json["error"]?.ToString() == "invalid_token")
+            {
+                return null; // báo cho caller biết cần đăng nhập lại
+            }
+
             int code = json["code"]?.Value<int>() ?? 0;
-
-            if (code == 401)
-                throw new UnauthorizedAccessException("Phiên đăng nhập đã hết hạn.");
-
             if (code != 200)
+            {
                 throw new Exception(json["message"]?.ToString() ?? "Yêu cầu thất bại.");
+            }
+
+            var data = json["data"];
+            if (data == null)
+                throw new Exception("Không có dữ liệu trả về.");
+
+            string creditAcctName = data["creditAcctName"]?.ToString() ?? "";
+
+            if (string.IsNullOrEmpty(creditAcctName))
+                throw new Exception("Không tìm thấy tên người thụ hưởng.");
+
+            return creditAcctName;
+        }
+
+        public async Task<string> LayTenNguoiThuHuongCungTKAsync(string creditAcctNo)
+        {
+            var url =
+                $"{BaseUrl}/IziBankBiz/Corp/corporate-gateway-server/corporate-fund-transfer-service/transfer/internal/{creditAcctNo}";
+
+            var headers = new Dictionary<string, string>
+            {
+                ["Authorization"] = $"Bearer {AppState.AccessToken}"
+            };
+
+            // Gửi request qua Playwright context
+            string responseText = await _virtualWebService.GuiRequestAsync(
+                url,
+                method: "GET",
+                headers: headers
+            );
+
+            if (string.IsNullOrWhiteSpace(responseText) || responseText.StartsWith("<"))
+                throw new Exception("Phản hồi không hợp lệ hoặc bị Cloudflare chặn.");
+
+            JObject json = JObject.Parse(responseText);
+
+            // Trường hợp token hết hạn hoặc không hợp lệ
+            if (json["error"]?.ToString() == "invalid_token")
+            {
+                return null; // báo cho caller biết cần đăng nhập lại
+            }
+
+            int code = json["code"]?.Value<int>() ?? 0;
+            if (code != 200)
+            {
+                throw new Exception(json["message"]?.ToString() ?? "Yêu cầu thất bại.");
+            }
 
             var data = json["data"];
             if (data == null)
@@ -167,11 +217,16 @@ namespace DemoNganHangNCB.Services
             JObject json = JObject.Parse(responseText);
             int code = json["code"]?.Value<int>() ?? 0;
 
-            if (code == 401)
-                throw new UnauthorizedAccessException("Phiên đăng nhập đã hết hạn.");
+            // Trường hợp token hết hạn hoặc không hợp lệ
+            if (json["error"]?.ToString() == "invalid_token")
+            {
+                return null; // báo cho caller biết cần đăng nhập lại
+            }
 
             if (code != 200)
+            {
                 throw new Exception(json["message"]?.ToString() ?? "Yêu cầu thất bại.");
+            }
 
             var data = json["data"];
             if (data == null)
@@ -201,7 +256,7 @@ namespace DemoNganHangNCB.Services
             return result;
         }
 
-        public async Task<AuthResult> XacNhanChuyenTienNhanhAsync(
+        public async Task<MessageResult> XacNhanChuyenTienNhanhAsync(
             FormCKN formCKN,
             string otp)
         {
@@ -213,7 +268,61 @@ namespace DemoNganHangNCB.Services
                 ["Content-Type"] = "application/json"
             };
 
-            // 🔹 Tạo payload đúng format như bạn thấy trong hình
+            // 🔹 Tạo payload
+            var bodyJS = new
+            {
+                debitAcctNo = formCKN.debitAcctNo,
+                creditAcctNo = formCKN.creditAcctNo,
+                amount = Convert.ToInt32(formCKN.amount),
+                note = formCKN.note,
+                otpMethod = formCKN.otpMethod,
+                otpLevel = formCKN.otpLevel,
+                otp = otp, // giá trị OTP bạn nhập
+                transactionCode = formCKN.transactionCode,
+                debitAcctName = formCKN.debitAcctName,
+                creditAcctName = formCKN.creditAcctName,
+                bankCode = formCKN.bankCode,
+                type = "ACCOUNT", // fallback nếu chưa có
+                time = formCKN.time
+            };
+
+            // 🔹 Chuyển sang JSON để gửi đi
+            string body = Newtonsoft.Json.JsonConvert.SerializeObject(bodyJS);
+
+            // 🔹 Gửi request POST
+            string responseText = await _virtualWebService.GuiRequestSerializeAsync(
+                url,
+                method: "POST",
+                headers: headers,
+                bodyJs: body
+            );
+
+            // Parse phản hồi
+            JObject json = JObject.Parse(responseText);
+            MessageResult a = new MessageResult
+            {
+                ErrorCode = json["code"]?.ToString(),
+                Message = json["message"]?.ToString()
+            };
+            
+
+            
+            return a;
+        }
+
+        public async Task<MessageResult> Transfer(
+            FormCKN formCKN,
+            string otp)
+        {
+            var url = $"{BaseUrl}/IziBankBiz/Corp/corporate-gateway-server/corporate-account-service/beneficiary/transfer";
+
+            var headers = new Dictionary<string, string>
+            {
+                ["Authorization"] = $"Bearer {AppState.AccessToken}",
+                ["Content-Type"] = "application/json"
+            };
+
+            // Tạo payload 
             var bodyJS = new
             {
                 debitAcctNo = formCKN.debitAcctNo,
@@ -244,14 +353,14 @@ namespace DemoNganHangNCB.Services
 
             // Parse phản hồi
             JObject json = JObject.Parse(responseText);
-            AuthResult a = new AuthResult
+            MessageResult a = new MessageResult
             {
                 ErrorCode = json["code"]?.ToString(),
-
+                Message = json["message"]?.ToString()
             };
-            
 
-            
+
+
             return a;
         }
 

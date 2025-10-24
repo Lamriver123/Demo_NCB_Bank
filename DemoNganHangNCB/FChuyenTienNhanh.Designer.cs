@@ -230,6 +230,7 @@
             lblAccountNo.TabIndex = 0;
             lblAccountNo.Text = "09891275463538";
             lblAccountNo.TextAlign = ContentAlignment.MiddleLeft;
+            lblAccountNo.Click += lblAccountNo_Click;
             // 
             // lblAccountType
             // 
@@ -354,6 +355,7 @@
             txtNoiDungChuyen.Name = "txtNoiDungChuyen";
             txtNoiDungChuyen.Size = new Size(719, 33);
             txtNoiDungChuyen.TabIndex = 14;
+            txtNoiDungChuyen.KeyPress += txtNoiDungChuyen_KeyPress;
             // 
             // label13
             // 
@@ -449,6 +451,8 @@
             txtSoTienChuyen.Name = "txtSoTienChuyen";
             txtSoTienChuyen.Size = new Size(719, 33);
             txtSoTienChuyen.TabIndex = 3;
+            txtSoTienChuyen.TextChanged += txtSoTienChuyen_TextChanged;
+            txtSoTienChuyen.KeyPress += txtSoTienChuyen_KeyPress;
             // 
             // tableLayoutPanel6
             // 
@@ -512,6 +516,7 @@
             txtSTK.Name = "txtSTK";
             txtSTK.Size = new Size(646, 33);
             txtSTK.TabIndex = 1;
+            txtSTK.KeyPress += txtSTK_KeyPress;
             txtSTK.Leave += txtSTK_Leave;
             // 
             // tableLayoutPanel10
@@ -582,6 +587,7 @@
             rbBenChuyenTra.TabStop = true;
             rbBenChuyenTra.Text = "Bên chuyển trả";
             rbBenChuyenTra.UseVisualStyleBackColor = true;
+            rbBenChuyenTra.CheckedChanged += rbBenChuyenTra_CheckedChanged;
             // 
             // txtSoTienPhi
             // 
@@ -592,6 +598,7 @@
             txtSoTienPhi.ReadOnly = true;
             txtSoTienPhi.Size = new Size(719, 33);
             txtSoTienPhi.TabIndex = 4;
+            txtSoTienPhi.Text = "0";
             // 
             // label5
             // 
@@ -678,10 +685,11 @@
             txtOTP.Dock = DockStyle.Fill;
             txtOTP.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOTP.Location = new Point(128, 17);
-            txtOTP.Mask = "000-999";
+            txtOTP.Mask = "000000";
             txtOTP.Name = "txtOTP";
             txtOTP.Size = new Size(292, 33);
             txtOTP.TabIndex = 13;
+            txtOTP.ValidatingType = typeof(int);
             // 
             // btnQuayLai
             // 

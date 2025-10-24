@@ -33,21 +33,34 @@ namespace DemoNganHangNCB.Services
             if (string.IsNullOrWhiteSpace(responseText) || responseText.StartsWith("<"))
                 throw new Exception("Phản hồi không hợp lệ hoặc bị Cloudflare chặn.");
 
-            JObject json = JObject.Parse(responseText);
+            JObject json;
+            try
+            {
+                json = JObject.Parse(responseText);
+            }
+            catch
+            {
+                throw new Exception("Không thể phân tích phản hồi JSON từ server.");
+            }
+
+            // Trường hợp token hết hạn hoặc không hợp lệ
+            if (json["error"]?.ToString() == "invalid_token")
+            {
+                return null; // báo cho caller biết cần đăng nhập lại
+            }
+
             int code = json["code"]?.Value<int>() ?? 0;
-
-            // 🟡 Hết hạn đăng nhập (token hết hiệu lực)
-            if (code == 401)
-                return null;
-
             if (code != 200)
+            {
                 throw new Exception(json["message"]?.ToString() ?? "Yêu cầu thất bại.");
+            }
 
+            // Lấy dữ liệu tài khoản
             var dataArray = json["data"] as JArray;
             if (dataArray == null || dataArray.Count == 0)
                 throw new Exception("Không có dữ liệu tài khoản.");
 
-            var firstItem = dataArray.First; // lấy phần tử đầu tiên
+            var firstItem = dataArray.First;
             var account = new Account
             {
                 accountNo = firstItem["accountNo"]?.ToString(),
@@ -60,8 +73,8 @@ namespace DemoNganHangNCB.Services
                     ? DateTime.MinValue
                     : firstItem["openDate"]!.Value<DateTime>()
             };
-            AppState.account = account;
 
+            AppState.account = account;
             return account;
         }
     }

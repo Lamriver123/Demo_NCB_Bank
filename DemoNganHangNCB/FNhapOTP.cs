@@ -12,7 +12,7 @@ namespace DemoNganHangNCB
 {
     public partial class FNhapOTP : Form
     {
-        public FNhapOTP()
+        public FNhapOTP(string userName, string passWord)
         {
             InitializeComponent();
         }
@@ -20,6 +20,18 @@ namespace DemoNganHangNCB
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            AppState.Reset();
+
+            using (var fLogin = new FLogin())
+            {
+                fLogin.ShowDialog();
+            }
         }
     }
 }

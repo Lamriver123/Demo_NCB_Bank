@@ -18,7 +18,7 @@ namespace DemoNganHangNCB.Services
             _guiYeuCau = guiYeuCau ?? throw new ArgumentNullException(nameof(guiYeuCau));
         }
 
-        public async Task<AuthResult> LoginAndGetTokenAsync(string username, string password)
+        public async Task<MessageResult> LoginAndGetTokenAsync(string username, string password)
         {
             // Đảm bảo trình duyệt/context đã khởi tạo
             await _guiYeuCau.InitializeAsync();
@@ -56,9 +56,10 @@ namespace DemoNganHangNCB.Services
 
             if (string.IsNullOrWhiteSpace(text) || text.TrimStart().StartsWith("<"))
             {
-                return new AuthResult
+                return new MessageResult
                 {
                     IsSuccess = false,
+                    ErrorCode = "HTML_RESPONSE",
                     Message = "Phản hồi không phải JSON — có thể Cloudflare chặn hoặc server trả HTML."
                 };
             }
@@ -70,31 +71,68 @@ namespace DemoNganHangNCB.Services
             }
             catch
             {
-                return new AuthResult
+                return new MessageResult
                 {
                     IsSuccess = false,
+                    ErrorCode = "INVALID_JSON",
                     Message = "Không parse được JSON trả về từ server."
                 };
             }
 
+            // 🔹 Phân loại phản hồi lỗi
+            if (json["error"] != null)
+            {
+                string errorDesc = json["error_description"]?.ToString();
+
+                switch (errorDesc)
+                {
+                    case "NCBLOGIN-9":
+                        return new MessageResult
+                        {
+                            IsSuccess = false,
+                            ErrorCode = "NCBLOGIN-9",
+                            Message = "Sai tên đăng nhập hoặc mật khẩu\nNếu sai quá 5 lần tài khoản sẽ bị khóa"
+                        };
+
+                    case "NCBLOGIN-14":
+                        return new MessageResult
+                        {
+                            IsSuccess = false,
+                            ErrorCode = "NCBLOGIN-14",
+                            Message = "Thiết bị mới — cần xác thực OTP."
+                        };
+
+                    default:
+                        return new MessageResult
+                        {
+                            IsSuccess = false,
+                            ErrorCode = errorDesc,
+                            Message = "Đăng nhập thất bại: " + errorDesc
+                        };
+                }
+            }
+
+            // 🔹 Đăng nhập thành công
             string accessToken = json["access_token"]?.ToString();
             string refreshToken = json["refresh_token"]?.ToString();
 
             if (string.IsNullOrEmpty(accessToken))
             {
-                return new AuthResult
+                return new MessageResult
                 {
                     IsSuccess = false,
-                    Message = "Không tìm thấy access_token trong phản hồi."
+                    ErrorCode = "NO_TOKEN",
+                    Message = "Không nhận được access_token từ server."
                 };
             }
 
             AppState.AccessToken = accessToken;
             AppState.RefreshToken = refreshToken;
 
-            return new AuthResult
+            return new MessageResult
             {
                 IsSuccess = true,
+                ErrorCode = null,
                 Message = "Đăng nhập thành công!"
             };
         }

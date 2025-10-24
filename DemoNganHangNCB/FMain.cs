@@ -74,6 +74,10 @@ namespace DemoNganHangNCB
             btnChuyenThuong.IconColor = tertiaryForeColor;
 
             FTraCuuSoDu fTraCuuSoDu = new FTraCuuSoDu();
+            fTraCuuSoDu.LogoutRequested += () =>
+            {
+                btnDangXuat_Click(sender, e);
+            };
             openChildForm(fTraCuuSoDu);
 
         }
@@ -104,17 +108,28 @@ namespace DemoNganHangNCB
 
             //Logic
             FTrangChu fTrangChu = new FTrangChu();
+            fTrangChu.LogoutRequested += () =>
+            {
+                btnDangXuat_Click(sender, e);
+            };
             openChildForm(fTrangChu);
         }
 
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-
+            this.Hide();           
+            AppState.Reset();
+            using (var fLogin = new FLogin())
+            {
+                fLogin.ShowDialog();
+            }
+            this.Close();
         }
 
         public void openChildForm(Form f)
         {
+            
             pChild.Controls.Clear();
             f.TopLevel = false;
             f.FormBorderStyle = FormBorderStyle.None;
@@ -151,6 +166,10 @@ namespace DemoNganHangNCB
 
             //Logic
             FChuyenTienNhanh fChuyenTienNhanh = new FChuyenTienNhanh();
+            fChuyenTienNhanh.LogoutRequested += () =>
+            {
+                btnDangXuat_Click(sender, e);
+            };
             openChildForm(fChuyenTienNhanh);
         }
 
@@ -180,6 +199,10 @@ namespace DemoNganHangNCB
 
             //Logic
             FChuyenTienThuong fChuyenTienThuong = new FChuyenTienThuong();
+            fChuyenTienThuong.LogoutRequested += () =>
+            {
+                btnDangXuat_Click(sender, e);
+            };
             openChildForm(fChuyenTienThuong);
         }
 
