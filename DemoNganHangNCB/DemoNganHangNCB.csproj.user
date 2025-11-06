@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\HK1Nam4\TaskThucTap\DemoNganHangNCB\DemoNganHangNCB\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="FChuyenTienNhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FChuyenTienThuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FNhapOTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FTraCuuSoDu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Items\UCLenhCK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Items\UCNganHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

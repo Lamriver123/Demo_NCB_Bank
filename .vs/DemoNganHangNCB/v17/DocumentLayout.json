@@ -1,0 +1,242 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\models\\lenhckthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\models\\lenhckthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\models\\lenhckchitiet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\models\\lenhckchitiet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentienthuong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\services\\bankingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\services\\bankingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\demonganhangncb\\ftrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\ftrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\demonganhangncb\\ftracuusodu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\ftracuusodu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fchuyentienthuong.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentienthuong.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\fchuyentiennhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\ftrangchu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\ftrangchu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\ftrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\ftrangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\items\\ucnganhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\items\\ucnganhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|e:\\hk1nam4\\taskthuctap\\demonganhangncb\\demonganhangncb\\services\\tracuuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EDBE58F-D05F-4596-9FF6-26CCE76CED07}|DemoNganHangNCB\\DemoNganHangNCB.csproj|solutionrelative:demonganhangncb\\services\\tracuuservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 292,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FTraCuuSoDu.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FTraCuuSoDu.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTraCuuSoDu.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FTraCuuSoDu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:20:10.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BankingService.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Services\\BankingService.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\Services\\BankingService.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Services\\BankingService.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\Services\\BankingService.cs",
+              "ViewState": "AgIAADkCAAAAAAAAAAAqwB0CAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:10:11.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FChuyenTienThuong.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienThuong.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T09:55:04.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FChuyenTienThuong.Designer.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.Designer.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienThuong.Designer.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.Designer.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienThuong.Designer.cs",
+              "ViewState": "AgIAAMwCAAAAAAAAAAAYwNYCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T09:54:48.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FChuyenTienNhanh.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "ViewState": "AgIAAL0BAAAAAAAAAAAwwM4BAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T09:43:39.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FChuyenTienNhanh.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienNhanh.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienNhanh.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienNhanh.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T09:41:51.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FTrangChu.cs [Design]",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FTrangChu.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.cs [Design]",
+              "RelativeToolTip": "DemoNganHangNCB\\FTrangChu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T09:11:36.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FTrangChu.Designer.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.Designer.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FTrangChu.Designer.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.Designer.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FTrangChu.Designer.cs",
+              "ViewState": "AgIAACsCAAAAAAAAAAAIwDsCAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T09:11:18.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LenhCKChiTiet.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Models\\LenhCKChiTiet.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\Models\\LenhCKChiTiet.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Models\\LenhCKChiTiet.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\Models\\LenhCKChiTiet.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAkwDkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:16:18.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UCNganHang.Designer.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Items\\UCNganHang.Designer.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\Items\\UCNganHang.Designer.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Items\\UCNganHang.Designer.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\Items\\UCNganHang.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:55:56.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TraCuuService.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\Services\\TraCuuService.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAewKEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:18:47.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LenhCKThuong.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Models\\LenhCKThuong.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\Models\\LenhCKThuong.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\Models\\LenhCKThuong.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\Models\\LenhCKThuong.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAowDsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:04:09.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FTrangChu.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FTrangChu.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FTrangChu.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FTrangChu.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAmwDYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:02:28.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FChuyenTienThuong.cs",
+              "DocumentMoniker": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "RelativeDocumentMoniker": "DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "ToolTip": "E:\\HK1Nam4\\TaskThucTap\\DemoNganHangNCB\\DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "RelativeToolTip": "DemoNganHangNCB\\FChuyenTienThuong.cs",
+              "ViewState": "AgIAAEUBAAAAAAAAAAAYwFcBAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T09:21:06.312Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
