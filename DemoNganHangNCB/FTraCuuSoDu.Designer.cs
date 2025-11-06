@@ -39,8 +39,10 @@
             label2 = new Label();
             panel3 = new Panel();
             tableLayoutPanel5 = new TableLayoutPanel();
-            lblAccountNo = new Label();
             lblAccountName = new Label();
+            tlpSTK = new TableLayoutPanel();
+            cbAccount = new ComboBox();
+            lblAccountNo = new Label();
             pContent.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -48,6 +50,7 @@
             tableLayoutPanel3.SuspendLayout();
             panel3.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            tlpSTK.SuspendLayout();
             SuspendLayout();
             // 
             // pContent
@@ -188,8 +191,8 @@
             tableLayoutPanel5.ColumnCount = 1;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Controls.Add(lblAccountNo, 0, 1);
             tableLayoutPanel5.Controls.Add(lblAccountName, 0, 0);
+            tableLayoutPanel5.Controls.Add(tlpSTK, 0, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(0, 0);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -199,18 +202,6 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
             tableLayoutPanel5.Size = new Size(562, 151);
             tableLayoutPanel5.TabIndex = 0;
-            // 
-            // lblAccountNo
-            // 
-            lblAccountNo.Dock = DockStyle.Fill;
-            lblAccountNo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAccountNo.ImageAlign = ContentAlignment.MiddleLeft;
-            lblAccountNo.Location = new Point(20, 46);
-            lblAccountNo.Margin = new Padding(20, 0, 3, 0);
-            lblAccountNo.Name = "lblAccountNo";
-            lblAccountNo.Size = new Size(539, 51);
-            lblAccountNo.TabIndex = 5;
-            lblAccountNo.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblAccountName
             // 
@@ -224,6 +215,51 @@
             lblAccountName.Size = new Size(539, 46);
             lblAccountName.TabIndex = 4;
             lblAccountName.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tlpSTK
+            // 
+            tlpSTK.ColumnCount = 3;
+            tlpSTK.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.8201447F));
+            tlpSTK.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 41.72662F));
+            tlpSTK.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tlpSTK.Controls.Add(cbAccount, 1, 0);
+            tlpSTK.Controls.Add(lblAccountNo, 0, 0);
+            tlpSTK.Dock = DockStyle.Fill;
+            tlpSTK.Location = new Point(3, 49);
+            tlpSTK.Name = "tlpSTK";
+            tlpSTK.RowCount = 1;
+            tlpSTK.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpSTK.Size = new Size(556, 45);
+            tlpSTK.TabIndex = 5;
+            // 
+            // cbAccount
+            // 
+            cbAccount.BackColor = Color.LightSteelBlue;
+            cbAccount.Dock = DockStyle.Fill;
+            cbAccount.FlatStyle = FlatStyle.Popup;
+            cbAccount.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbAccount.ForeColor = SystemColors.ControlLightLight;
+            cbAccount.FormattingEnabled = true;
+            cbAccount.ItemHeight = 30;
+            cbAccount.Location = new Point(141, 3);
+            cbAccount.Name = "cbAccount";
+            cbAccount.Size = new Size(226, 38);
+            cbAccount.TabIndex = 5;
+            cbAccount.SelectedIndexChanged += cbAccount_SelectedIndexChanged;
+            // 
+            // lblAccountNo
+            // 
+            lblAccountNo.BackColor = Color.Transparent;
+            lblAccountNo.Dock = DockStyle.Fill;
+            lblAccountNo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAccountNo.ImageAlign = ContentAlignment.MiddleLeft;
+            lblAccountNo.Location = new Point(20, 0);
+            lblAccountNo.Margin = new Padding(20, 0, 3, 0);
+            lblAccountNo.Name = "lblAccountNo";
+            lblAccountNo.Size = new Size(115, 45);
+            lblAccountNo.TabIndex = 5;
+            lblAccountNo.Text = "Số tài khoản:";
+            lblAccountNo.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // FTraCuuSoDu
             // 
@@ -242,6 +278,7 @@
             tableLayoutPanel3.ResumeLayout(false);
             panel3.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
+            tlpSTK.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -260,5 +297,7 @@
         private TableLayoutPanel tableLayoutPanel5;
         private Label lblAccountNo;
         private Label lblAccountName;
+        private ComboBox cbAccount;
+        private TableLayoutPanel tlpSTK;
     }
 }

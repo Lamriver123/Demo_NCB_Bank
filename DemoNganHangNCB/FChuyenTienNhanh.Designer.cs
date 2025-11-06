@@ -38,8 +38,8 @@
             label1 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
             lblSoDu = new Label();
-            lblAccountNo = new Label();
             lblAccountType = new Label();
+            cbAccount = new ComboBox();
             panel3 = new Panel();
             tabControl1 = new TabControl();
             tabPageSTK = new TabPage();
@@ -190,12 +190,12 @@
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 3;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.1282043F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.55128F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 36.53846F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.1410255F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel4.Controls.Add(lblSoDu, 1, 0);
-            tableLayoutPanel4.Controls.Add(lblAccountNo, 0, 0);
             tableLayoutPanel4.Controls.Add(lblAccountType, 0, 1);
+            tableLayoutPanel4.Controls.Add(cbAccount, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tableLayoutPanel4.Location = new Point(337, 3);
@@ -212,25 +212,12 @@
             lblSoDu.Dock = DockStyle.Fill;
             lblSoDu.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblSoDu.ForeColor = SystemColors.ControlLightLight;
-            lblSoDu.Location = new Point(191, 0);
+            lblSoDu.Location = new Point(231, 0);
             lblSoDu.Name = "lblSoDu";
-            lblSoDu.Size = new Size(272, 35);
+            lblSoDu.Size = new Size(232, 35);
             lblSoDu.TabIndex = 2;
             lblSoDu.Text = "50,000 VND";
             lblSoDu.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblAccountNo
-            // 
-            lblAccountNo.AutoSize = true;
-            lblAccountNo.Dock = DockStyle.Fill;
-            lblAccountNo.ForeColor = SystemColors.ControlLightLight;
-            lblAccountNo.Location = new Point(3, 0);
-            lblAccountNo.Name = "lblAccountNo";
-            lblAccountNo.Size = new Size(182, 35);
-            lblAccountNo.TabIndex = 0;
-            lblAccountNo.Text = "09891275463538";
-            lblAccountNo.TextAlign = ContentAlignment.MiddleLeft;
-            lblAccountNo.Click += lblAccountNo_Click;
             // 
             // lblAccountType
             // 
@@ -240,10 +227,23 @@
             lblAccountType.ForeColor = SystemColors.ControlLightLight;
             lblAccountType.Location = new Point(3, 35);
             lblAccountType.Name = "lblAccountType";
-            lblAccountType.Size = new Size(182, 28);
+            lblAccountType.Size = new Size(222, 28);
             lblAccountType.TabIndex = 1;
             lblAccountType.Text = "Tài khoản thanh toán";
             lblAccountType.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // cbAccount
+            // 
+            cbAccount.BackColor = SystemColors.ActiveCaption;
+            cbAccount.FlatStyle = FlatStyle.Flat;
+            cbAccount.ForeColor = SystemColors.ControlLightLight;
+            cbAccount.FormattingEnabled = true;
+            cbAccount.Location = new Point(3, 3);
+            cbAccount.Name = "cbAccount";
+            cbAccount.Size = new Size(222, 29);
+            cbAccount.TabIndex = 3;
+            cbAccount.SelectedIndexChanged += cbAccount_SelectedIndexChanged;
+            cbAccount.KeyPress += cbAccount_KeyPress;
             // 
             // panel3
             // 
@@ -587,7 +587,6 @@
             rbBenChuyenTra.TabStop = true;
             rbBenChuyenTra.Text = "Bên chuyển trả";
             rbBenChuyenTra.UseVisualStyleBackColor = true;
-            rbBenChuyenTra.CheckedChanged += rbBenChuyenTra_CheckedChanged;
             // 
             // txtSoTienPhi
             // 
@@ -613,8 +612,10 @@
             // 
             // cbNganHang
             // 
+            cbNganHang.BackColor = Color.White;
             cbNganHang.Dock = DockStyle.Fill;
-            cbNganHang.DropDownHeight = 250;
+            cbNganHang.DropDownHeight = 242;
+            cbNganHang.FlatStyle = FlatStyle.System;
             cbNganHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbNganHang.FormattingEnabled = true;
             cbNganHang.IntegralHeight = false;
@@ -624,6 +625,7 @@
             cbNganHang.TabIndex = 20;
             cbNganHang.DrawItem += CbNganHang_DrawItem;
             cbNganHang.TextChanged += cbNganHang_TextChanged;
+            cbNganHang.MouseMove += cbNganHang_MouseMove;
             // 
             // pChuyenTien
             // 
@@ -770,7 +772,6 @@
         private Label label1;
         private TableLayoutPanel tableLayoutPanel4;
         private Label lblSoDu;
-        private Label lblAccountNo;
         private Label lblAccountType;
         private Panel panel3;
         private TabControl tabControl1;
@@ -809,5 +810,6 @@
         private Label label6;
         private MaskedTextBox txtOTP;
         private FontAwesome.Sharp.IconButton btnQuayLai;
+        private ComboBox cbAccount;
     }
 }

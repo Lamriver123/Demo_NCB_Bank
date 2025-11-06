@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DemoNganHangNCB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da9a1a9e468d62b1d3c8906c87059331f89bc85a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5c3a01742fd873a7b7cc403e2b08c6fa7bbc73b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DemoNganHangNCB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DemoNganHangNCB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

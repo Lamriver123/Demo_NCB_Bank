@@ -186,6 +186,7 @@
             lblAccountNo.TabIndex = 0;
             lblAccountNo.Text = "09891275463538";
             lblAccountNo.TextAlign = ContentAlignment.MiddleLeft;
+            lblAccountNo.Click += lblAccountNo_Click;
             // 
             // lblAccountType
             // 

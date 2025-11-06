@@ -15,7 +15,7 @@ namespace DemoNganHangNCB.Services
             _virtualWebService = virtualWebService;
         }
 
-        public async Task<Account?> LayThongTinTaiKhoanAsync()
+        public async Task<List<Account>?> LayThongTinTaiKhoanAsync()
         {
             var url = $"{BaseUrl}/IziBankBiz/Corp/corporate-gateway-server/corporate-account-service/account/debits";
 
@@ -60,22 +60,26 @@ namespace DemoNganHangNCB.Services
             if (dataArray == null || dataArray.Count == 0)
                 throw new Exception("Không có dữ liệu tài khoản.");
 
-            var firstItem = dataArray.First;
-            var account = new Account
+            var Items = dataArray;
+            List<Account> accounts = new List<Account>();
+            foreach (var item in Items) 
             {
-                accountNo = firstItem["accountNo"]?.ToString(),
-                accountName = firstItem["accountName"]?.ToString(),
-                accountType = firstItem["accountType"]?.ToString(),
-                currency = firstItem["currency"]?.ToString(),
-                balance = firstItem["balance"]?.ToString(),
-                status = firstItem["status"]?.ToString(),
-                openDate = firstItem["openDate"]?.Type == JTokenType.Null
-                    ? DateTime.MinValue
-                    : firstItem["openDate"]!.Value<DateTime>()
-            };
-
-            AppState.account = account;
-            return account;
+                var account = new Account
+                {
+                    accountNo = item["accountNo"]?.ToString(),
+                    accountName = item["accountName"]?.ToString(),
+                    accountType = item["accountType"]?.ToString(),
+                    currency = item["currency"]?.ToString(),
+                    balance = item["balance"]?.ToString(),
+                    status = item["status"]?.ToString(),
+                    openDate = item["openDate"]?.Type == JTokenType.Null
+                 ? DateTime.MinValue
+                 : item["openDate"]!.Value<DateTime>()
+                };
+                accounts.Add(account);
+            }
+            AppState.account = accounts[0];
+            return accounts;
         }
     }
 }

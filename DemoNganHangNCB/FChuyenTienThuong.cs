@@ -24,7 +24,6 @@ namespace DemoNganHangNCB
         {
             try
             {
-                AppState.AccessToken = "a";
                 var traCuuService = new TraCuuService(AppState.virtualWeb);
                 var account = await traCuuService.LayThongTinTaiKhoanAsync();
 
@@ -35,9 +34,9 @@ namespace DemoNganHangNCB
 
                     return;
                 }
-                lblAccountNo.Text = account.accountNo;
-                lblAccountType.Text = account.accountType;
-                lblSoDu.Text = FormatNumberStringWithCommas(account.balance) + "  " + account.currency;
+                lblAccountNo.Text = account[0].accountNo;
+                lblAccountType.Text = account[0].accountType;
+                lblSoDu.Text = FormatNumberStringWithCommas(account[0].balance) + "  " + account[0].currency;
 
                 pContent.Show();
             }
@@ -53,6 +52,11 @@ namespace DemoNganHangNCB
                 return number.ToString("N0", new CultureInfo("en-US"));
             }
             return numberString;
+        }
+
+        private void lblAccountNo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

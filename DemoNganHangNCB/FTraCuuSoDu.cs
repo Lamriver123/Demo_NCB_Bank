@@ -1,4 +1,6 @@
-﻿using DemoNganHangNCB.Services;
+﻿using DemoNganHangNCB.Items;
+using DemoNganHangNCB.Models;
+using DemoNganHangNCB.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +17,7 @@ namespace DemoNganHangNCB
     public partial class FTraCuuSoDu : Form
     {
         public event Action? LogoutRequested;
+        private List<Account> accounts; 
         public FTraCuuSoDu()
         {
             InitializeComponent();
@@ -22,34 +25,44 @@ namespace DemoNganHangNCB
 
         }
 
-
         private async void FTraCuuSoDu_Load(object sender, EventArgs e)
         {
             try
             {
                 var traCuuService = new TraCuuService(AppState.virtualWeb);
-                var account = await traCuuService.LayThongTinTaiKhoanAsync();
+                accounts = await traCuuService.LayThongTinTaiKhoanAsync();
 
-                if (account == null)
+                if (accounts == null)
                 {
                     MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "Thông báo");
                     LogoutRequested?.Invoke();
-                    
+
                     return;
                 }
-                lblAccountName.Text ="Chủ tài khoản: " + account.accountName;
-                lblAccountNo.Text ="Số tài khoản: "+ account.accountNo;
-                lblAccountType.Text = account.accountType;
-                lblSoDu.Text = FormatNumberStringWithCommas(account.balance) + "  " + account.currency;
-                lblStatus.Text = account.status;
+                cbAccount.DataSource = accounts;
+                cbAccount.DisplayMember = "accountNo";
+                cbAccount.ValueMember = "accountNo";
+                cbAccount.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbAccount.ItemHeight = tlpSTK.Height;
 
+                // Gán thông tin cho tài khoản đầu tiên
+                HienThiThongTinTaiKhoan(accounts[0]);
                 pContent.Show();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi tra cứu: {ex.Message}");
             }
-            
+
+        }
+
+        private void HienThiThongTinTaiKhoan(Account account)
+        {
+            lblAccountName.Text = "Chủ tài khoản: " + account.accountName;
+            lblAccountType.Text = account.accountType;
+            lblSoDu.Text = FormatNumberStringWithCommas(account.balance) + "  " + account.currency;
+            lblStatus.Text = account.status;
         }
 
         public string FormatNumberStringWithCommas(string numberString)
@@ -59,6 +72,15 @@ namespace DemoNganHangNCB
                 return number.ToString("N0", new CultureInfo("en-US"));
             }
             return numberString;
+        }
+
+        private void cbAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbAccount.SelectedIndex;
+            if (index >= 0 && index < accounts.Count)
+            {
+                HienThiThongTinTaiKhoan(accounts[index]);
+            }
         }
     }
 }

@@ -164,14 +164,18 @@ namespace DemoNganHangNCB.Services
                 throw new Exception("Không có dữ liệu trả về.");
 
             string creditAcctName = data["creditAcctName"]?.ToString() ?? "";
+            string accountName = data["accountName"]?.ToString() ?? "";
 
-            if (string.IsNullOrEmpty(creditAcctName))
+            if (string.IsNullOrEmpty(creditAcctName) && string.IsNullOrEmpty(accountName))
                 throw new Exception("Không tìm thấy tên người thụ hưởng.");
-
+            if(string.IsNullOrEmpty(creditAcctName))
+                return accountName;
             return creditAcctName;
         }
 
         public async Task<FormCKN> ChuyenTienNhanhAsync(
+            string debitAcctNo,
+            string debitAcctName,
             string creditAcctNo,
             string creditAcctName,
             string bankCode,
@@ -188,24 +192,24 @@ namespace DemoNganHangNCB.Services
                 ["Content-Type"] = "application/json"
             };
 
-            // 🔹 Tạo payload đúng format như bạn thấy trong hình
+            // Tạo payload đúng format như bạn thấy trong hình
             var bodyJS = new
             {
-                debitAcctNo = AppState.account.accountNo,
+                debitAcctNo = debitAcctNo,
                 creditAcctNo = creditAcctNo,
                 amount = Convert.ToInt32(amount),
                 note = note,
-                debitAcctName = AppState.account.accountName,
+                debitAcctName = debitAcctName,
                 creditAcctName = creditAcctName,
                 bankCode = bankCode,
                 duty = "NO",
                 type = "ACCOUNT"
             };
 
-            // 🔹 Chuyển sang JSON để gửi đi
+            // Chuyển sang JSON để gửi đi
             string body = Newtonsoft.Json.JsonConvert.SerializeObject(bodyJS);
 
-            // 🔹 Gửi request POST
+            // Gửi request POST
             string responseText = await _virtualWebService.GuiRequestSerializeAsync(
                 url,
                 method: "POST",
@@ -232,7 +236,7 @@ namespace DemoNganHangNCB.Services
             if (data == null)
                 throw new Exception("Không có dữ liệu trả về.");
 
-            // 🔹 Map dữ liệu về model FormCKN
+            // Map dữ liệu về model FormCKN
             var result = new FormCKN
             {
                 transactionCode = data["transactionCode"]?.ToString(),
@@ -256,6 +260,87 @@ namespace DemoNganHangNCB.Services
             return result;
         }
 
+
+        public async Task<FormCKN> ChuyenTienNhanhCungTKAsync(
+            string debitAcctNo,
+            string creditAcctNo,
+            string amount,
+            string note,
+            string duty = "NO")
+        {
+            var url = $"{BaseUrl}/IziBankBiz/Corp/corporate-gateway-server/corporate-fund-transfer-service/transfer/internal-confirm";
+
+            var headers = new Dictionary<string, string>
+            {
+                ["Authorization"] = $"Bearer {AppState.AccessToken}",
+                ["Content-Type"] = "application/json"
+            };
+
+            // Tạo payload đúng format như bạn thấy trong hình
+            var bodyJS = new
+            {
+                debitAcctNo = debitAcctNo,
+                creditAcctNo = creditAcctNo,
+                amount = Convert.ToInt32(amount),
+                note = note,
+                duty = "NO",
+            };
+
+            // Chuyển sang JSON để gửi đi
+            string body = Newtonsoft.Json.JsonConvert.SerializeObject(bodyJS);
+
+            // Gửi request POST
+            string responseText = await _virtualWebService.GuiRequestSerializeAsync(
+                url,
+                method: "POST",
+                headers: headers,
+                bodyJs: body
+            );
+
+            // Parse phản hồi
+            JObject json = JObject.Parse(responseText);
+            int code = json["code"]?.Value<int>() ?? 0;
+
+            // Trường hợp token hết hạn hoặc không hợp lệ
+            if (json["error"]?.ToString() == "invalid_token")
+            {
+                return null; // báo cho caller biết cần đăng nhập lại
+            }
+
+            if (code != 200)
+            {
+                throw new Exception(json["message"]?.ToString() ?? "Yêu cầu thất bại.");
+            }
+
+            var data = json["data"];
+            if (data == null)
+                throw new Exception("Không có dữ liệu trả về.");
+
+            // Map dữ liệu về model FormCKN
+            var result = new FormCKN
+            {
+                transactionCode = data["transactionCode"]?.ToString(),
+                transferTime = data["transferTime"]?.ToString(),
+                debitAcctNo = data["debitAcctNo"]?.ToString(),
+                debitAcctName = data["debitAcctName"]?.ToString(),
+                creditAcctNo = data["creditAcctNo"]?.ToString(),
+                creditAcctName = data["creditAcctName"]?.ToString(),
+                amount = data["amount"]?.ToString(),
+                note = data["note"]?.ToString(),
+                fee = data["fee"]?.ToString(),
+                duty = data["duty"]?.ToString(),
+                currency = data["currency"]?.ToString(),
+                otpMethod = data["otpMethod"]?.ToString(),
+                otpLevel = data["otpLevel"]?.ToString(),
+                flagCif = data["flagCif"]?.ToString(),
+                challengeQRCode = data["challengeQRCode"]?.ToString(),
+                challenge = data["challenge"]?.ToString(),
+                time = data["time"]?.ToString()
+            };
+
+            return result;
+        }
+
         public async Task<MessageResult> XacNhanChuyenTienNhanhAsync(
             FormCKN formCKN,
             string otp)
@@ -268,7 +353,7 @@ namespace DemoNganHangNCB.Services
                 ["Content-Type"] = "application/json"
             };
 
-            // 🔹 Tạo payload
+            // Tạo payload
             var bodyJS = new
             {
                 debitAcctNo = formCKN.debitAcctNo,
@@ -286,10 +371,10 @@ namespace DemoNganHangNCB.Services
                 time = formCKN.time
             };
 
-            // 🔹 Chuyển sang JSON để gửi đi
+            // Chuyển sang JSON để gửi đi
             string body = Newtonsoft.Json.JsonConvert.SerializeObject(bodyJS);
 
-            // 🔹 Gửi request POST
+            // Gửi request POST
             string responseText = await _virtualWebService.GuiRequestSerializeAsync(
                 url,
                 method: "POST",
@@ -299,22 +384,24 @@ namespace DemoNganHangNCB.Services
 
             // Parse phản hồi
             JObject json = JObject.Parse(responseText);
+            string error = json["error"]?.ToString();
+
             MessageResult a = new MessageResult
             {
-                ErrorCode = json["code"]?.ToString(),
-                Message = json["message"]?.ToString()
+                ErrorCode = error == "invalid_token" ? "401" : json["code"]?.ToString(),
+                Message = error == "invalid_token"
+                                ? "Phiên đăng nhập đã hết, vui lòng đăng nhập lại"
+                                : json["message"]?.ToString()
             };
-            
 
-            
             return a;
         }
 
-        public async Task<MessageResult> Transfer(
+        public async Task<MessageResult> XacNhanChuyenTienNhanhCungTKAsync(
             FormCKN formCKN,
             string otp)
         {
-            var url = $"{BaseUrl}/IziBankBiz/Corp/corporate-gateway-server/corporate-account-service/beneficiary/transfer";
+            var url = $"{BaseUrl}/IziBankBiz/Corp/corporate-gateway-server/corporate-fund-transfer-service/transfer/internal";
 
             var headers = new Dictionary<string, string>
             {
@@ -322,28 +409,24 @@ namespace DemoNganHangNCB.Services
                 ["Content-Type"] = "application/json"
             };
 
-            // Tạo payload 
+            // Tạo payload
             var bodyJS = new
             {
                 debitAcctNo = formCKN.debitAcctNo,
                 creditAcctNo = formCKN.creditAcctNo,
-                amount = Convert.ToDecimal(formCKN.amount),
+                amount = Convert.ToInt32(formCKN.amount),
                 note = formCKN.note,
                 otpMethod = formCKN.otpMethod,
                 otpLevel = formCKN.otpLevel,
-                otp = otp, // giá trị OTP bạn nhập
+                otp = otp, 
                 transactionCode = formCKN.transactionCode,
-                debitAcctName = formCKN.debitAcctName,
-                creditAcctName = formCKN.creditAcctName,
-                bankCode = formCKN.bankCode,
-                type = "ACCOUNT", // fallback nếu chưa có
                 time = formCKN.time
             };
 
-            // 🔹 Chuyển sang JSON để gửi đi
+            // Chuyển sang JSON để gửi đi
             string body = Newtonsoft.Json.JsonConvert.SerializeObject(bodyJS);
 
-            // 🔹 Gửi request POST
+            // Gửi request POST
             string responseText = await _virtualWebService.GuiRequestSerializeAsync(
                 url,
                 method: "POST",
@@ -353,18 +436,16 @@ namespace DemoNganHangNCB.Services
 
             // Parse phản hồi
             JObject json = JObject.Parse(responseText);
+            string error = json["error"]?.ToString();
+
             MessageResult a = new MessageResult
             {
-                ErrorCode = json["code"]?.ToString(),
-                Message = json["message"]?.ToString()
+                ErrorCode = error == "invalid_token" ? "401" : json["code"]?.ToString(),
+                Message = error == "invalid_token"
+                                ? "Phiên đăng nhập đã hết, vui lòng đăng nhập lại"
+                                : json["message"]?.ToString()
             };
-
-
-
             return a;
         }
-
-
-
     }
 }
